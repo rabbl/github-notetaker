@@ -1,7 +1,7 @@
-var React = require('react');
+import React from 'react';
 
-var NotesList= React.createClass({
-    render: function () {
+class NotesList extends React.Component{
+    render(){
         var notes = this.props.notes.map(function(note, index){
             return <li className="list-group-item" key={index}>{note['.value']}</li>
         });
@@ -12,6 +12,10 @@ var NotesList= React.createClass({
             </ul>
         )
     }
-});
+}
 
-module.exports = NotesList;
+NotesList.propTypes = {
+    notes: React.PropTypes.array.isRequired
+};
+
+export default NotesList;
